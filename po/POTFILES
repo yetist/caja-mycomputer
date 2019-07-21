@@ -1,0 +1,3 @@
+src/caja-my-computer.c
+src/my-computer.c
+data/libcaja-my-computer.desktop.in
