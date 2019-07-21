@@ -33,8 +33,9 @@
 static void caja_my_computer_iface_init (CajaWidgetViewProviderIface *iface);
 
 struct _CajaMyComputer {
-	GObject parent;
+	GObject    parent;
     GtkWidget *widget;
+    GList     *list;
 };
 
 G_DEFINE_DYNAMIC_TYPE_EXTENDED (CajaMyComputer, caja_my_computer, G_TYPE_OBJECT,
@@ -55,6 +56,7 @@ caja_my_computer_class_init (CajaMyComputerClass *class)
 static void
 caja_my_computer_init (CajaMyComputer *self)
 {
+    self->list = NULL;
 }
 
 GtkWidget *caja_my_computer_get_widget (CajaWidgetViewProvider *provider)
@@ -83,15 +85,14 @@ gboolean caja_my_computer_supports_uri (CajaWidgetViewProvider *provider,
                                         GFileType file_type,
                                         const char *mime_type)
 {
-	//if (g_str_has_prefix(uri, "computer://")) {
-	if (g_str_has_prefix(uri, "file:///tmp")) {
+	if (g_str_has_prefix(uri, "computer://")) {
         return TRUE;
     } else {
         return FALSE;
     }
 }
 
-void caja_my_computer_add_file (CajaWidgetViewProvider *provider, CajaFile *file)
+void caja_my_computer_add_file (CajaWidgetViewProvider *provider, CajaFile *file, CajaFile *directory)
 {
     printf("call here\n");
     CajaMyComputer *self;
@@ -99,13 +100,13 @@ void caja_my_computer_add_file (CajaWidgetViewProvider *provider, CajaFile *file
 
     self = CAJA_MY_COMPUTER(provider);
 
-    label = gtk_label_new(caja_file_info_get_name(file));
-    //label = gtk_label_new("a");
+    label = gtk_button_new_with_label (caja_file_info_get_name(file));
     gtk_widget_show(label);
     gtk_box_pack_start(GTK_BOX(self->widget), label, TRUE, TRUE, 0);
+    self->list = g_list_append (self->list, file);
 }
 
-void caja_my_computer_set_uri (CajaWidgetViewProvider *provider, const char *uri)
+void caja_my_computer_set_location (CajaWidgetViewProvider *provider, const char *location)
 {
 }
 
@@ -119,7 +120,7 @@ caja_my_computer_iface_init (CajaWidgetViewProviderIface *iface)
 	iface->get_widget = caja_my_computer_get_widget;
 	iface->supports_uri = caja_my_computer_supports_uri;
 	iface->add_file = caja_my_computer_add_file;
-	iface->set_uri = caja_my_computer_set_uri;
+	iface->set_location = caja_my_computer_set_location;
 	iface->set_window = caja_my_computer_set_window;
 }
 
