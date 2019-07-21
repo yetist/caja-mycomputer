@@ -22,5 +22,5 @@ i18n.merge_file(
   type: 'desktop',
   po_dir: '../po',
   install: true,
-  install_dir : caja_ext_dir,
+  install_dir : join_paths(get_option('prefix'), get_option('datadir'), 'caja', 'extensions')
 )

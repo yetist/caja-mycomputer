@@ -9,7 +9,7 @@ config_h.set_quoted('VERSION', meson.project_version())
 config_h.set_quoted('PACKAGE_NAME', meson.project_name())
 config_h.set_quoted('PACKAGE_VERSION', meson.project_version())
 config_h.set_quoted('GETTEXT_PACKAGE', meson.project_name())
-config_h.set_quoted('GETTEXT_PACKAGE', 'caja-my-computer')
+config_h.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 config_h.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
 configure_file(
   output: 'config.h',
