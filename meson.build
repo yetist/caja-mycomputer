@@ -1,6 +1,6 @@
 project('caja-my-computer', 'c',
   version: '0.2.0',
-  meson_version: '>= 0.37.0',
+  meson_version: '>= 0.51.0',
   default_options : ['prefix=/usr'],
 )
 

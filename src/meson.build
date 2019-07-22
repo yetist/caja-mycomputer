@@ -20,7 +20,9 @@ i18n.merge_file(
   input: 'libcaja-my-computer.desktop.in',
   output: 'libcaja-my-computer.caja-extension',
   type: 'desktop',
+  args: ['--keyword=Name', '--keyword=Description'],
   po_dir: '../po',
   install: true,
   install_dir : join_paths(get_option('prefix'), get_option('datadir'), 'caja', 'extensions')
 )
+

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: caja-mycomputer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-01 17:35+0800\n"
+"POT-Creation-Date: 2019-07-22 11:34+0800\n"
 "PO-Revision-Date: 2017-06-18 15:41+0800\n"
 "Last-Translator: yetist <yetist@gmail.com>\n"
 "Language-Team: \n"
@@ -19,10 +19,14 @@ msgstr ""
 "X-Generator: Poedit 2.0.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: data/libcaja-my-computer.desktop.in:3
+#: src/libcaja-my-computer.desktop.in:3
 msgid "My Computer"
 msgstr "我的电脑"
 
-#: data/libcaja-my-computer.desktop.in:5
+#: src/libcaja-my-computer.desktop.in:4
+msgid "Custom computer view"
+msgstr "自定义计算机视图"
+
+#: src/libcaja-my-computer.desktop.in:5
 msgid "computer"
 msgstr ""
